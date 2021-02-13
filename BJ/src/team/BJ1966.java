@@ -4,6 +4,13 @@ import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Collections;
 
+
+/* N0.1
+ * 2021.2 2ÁÖÂ÷
+ * 
+ */
+
+
 public class BJ1966 {
 	public static void main(String []arg) {
 		
