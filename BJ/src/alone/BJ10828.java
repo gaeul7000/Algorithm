@@ -9,14 +9,13 @@ import java.util.Scanner;
 
 
 public class BJ10828 {
-
+	static public int index = 0;
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int stackSize = scanner.nextInt();
-		int[] stack = new int[stackSize-1];
+		int[] stack = new int[stackSize];
 		String command;
 		int pushNumber;
-		int index=0;
 		
 		while(stackSize>0) {
 		
@@ -24,27 +23,28 @@ public class BJ10828 {
 			
 			if(command.equals("push")) {
 				pushNumber = scanner.nextInt();
-				push(stack, pushNumber, index);
+				push(stack, pushNumber);
 			}else if(command.equals("pop")){
-				pop(stack, index);
+				pop(stack);
 			}else if(command.equals("size")) {
-				size(index);
+				size();
 			}else if(command.equals("empty")) {
-				empty(index);
+				empty();
 			}else if(command.equals("top")) {
-				top(stack, index);
+				top(stack);
 			}
 			
 			stackSize--;
 		}
 	}
 
-	static void push(int arr[], int x, int index) {
-		arr[index] = x;
+	static void push(int arr[], int x) {
 		index++;
+		arr[index] = x;
+
 	}
 
-	static void pop(int arr[], int index) {
+	static void pop(int arr[]) {
 		if(index == 0) {
 			System.out.println("-1");
 		} else {
@@ -55,11 +55,11 @@ public class BJ10828 {
 		
 	}
 	
-	static void size(int index) {
+	static void size() {
 		System.out.println(index);
 	}
 	
-	static void empty(int index) {
+	static void empty() {
 		if(index==0) {
 			System.out.println("1");
 		}else {
@@ -67,7 +67,7 @@ public class BJ10828 {
 		}
 	}
 	
-	static void top(int arr[], int index) {
+	static void top(int arr[]) {
 		if(index==0) {
 			System.out.println("-1");
 		}else {
