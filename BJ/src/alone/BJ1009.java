@@ -3,6 +3,7 @@ package alone;
 import java.io.*;
 import java.math.BigDecimal;
 
+
 /* N0.2
  * 2021.2 3ÁÖÂ÷
  * 
