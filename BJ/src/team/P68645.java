@@ -9,7 +9,7 @@ class Solution{
 	public Solution() {
 		// TODO Auto-generated constructor stub
 	}
-
+ 
 	public int[] solution(int n) {
 	        int[] answer;
 	        int[][] triangle = new int[n][n];
