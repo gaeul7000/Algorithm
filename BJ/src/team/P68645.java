@@ -22,7 +22,7 @@ class Solution{
 	        		triangle[i][j]=-1;
 	        	}
 	        }
-	        
+	     
 	        int i = 0,j = 0;
 	        int k = 1;
 	        
