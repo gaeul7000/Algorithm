@@ -6,10 +6,6 @@ package team;
  */
 
 class Solution{
-	public Solution() {
-		// TODO Auto-generated constructor stub
-	}
- 
 	public int[] solution(int n) {
 	        int[] answer;
 	        int[][] triangle = new int[n][n];
@@ -29,12 +25,15 @@ class Solution{
 	        triangle[i][j] = k;
 	        
 	        while(k<max) {
+	        	
 	        	while(i+1<n&&triangle[i+1][j]<0&&k<max) {
 	        		triangle[++i][j] = ++k;
 	        	}
+	        	
 	        	while(j+1<n&&triangle[i][j+1]<0&&k<max) {
 	        		triangle[i][++j] = ++k;
 	        	}
+	        	
 	        	while(i-1>0&&j-1>0&&triangle[i-1][j-1]<0&&k<max) {
 	        		triangle[--i][--j] = ++k;
 	        	}
@@ -63,7 +62,6 @@ class Solution{
 
 public class P68645 {
 		public static void main(String[] args) {
+			
 		}
-
-
 }
