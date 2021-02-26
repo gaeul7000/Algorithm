@@ -31,11 +31,6 @@ class Meet implements Comparable<Meet>{
 		return finish;
 	}
 	
-	public String toString() {
-		return "start :" + start + " finish :" + finish + " length :"+getLength(); 
-	}
-
-
 	@Override
 	public int compareTo(Meet meet) {
 		// TODO Auto-generated method stub
@@ -74,13 +69,15 @@ public class BJ1931 {
 					i--;
 				}
 			}
+			
 			if(list.size()<=0) {
 				break;
 			}
+			
 			time -= list.get(0).getLength();
 			meetingCount++;
+			
 			deletePoint = list.get(0).getFinish();
-			int j = 0;
 			size = list.size();
 			for(int i=0; i < size;i++) {
 				if(deletePoint > list.get(i).getStart()) {
