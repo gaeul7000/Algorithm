@@ -37,12 +37,7 @@ class Solution{
 }
 public class BJ4948 {
 	public static void main(String[] args) {
-		Solution s = new Solution();
-		
-		int a = s.solution(100000);
-		
-		System.out.println(a);
-		
+
 	}
 
 }
