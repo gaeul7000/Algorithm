@@ -34,7 +34,7 @@ class Solution3{
 			Node node = q.poll();
 			int pos = node.position;
 			int cot = node.count;
-			System.out.println("수ㅟ치"+pos+"동생위치"+m+"뎁스"+cot);
+
 			if(pos == m) {
 				answer = node.count;
 				break;
@@ -63,8 +63,4 @@ class Solution3{
 
 public class BJ1697 {
 
-	public static void main(String[] args) {
-		Solution3 s = new Solution3();
-		System.out.println(s.solution(5, 17));
-	}
 }
