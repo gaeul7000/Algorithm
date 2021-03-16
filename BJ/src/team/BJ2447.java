@@ -30,16 +30,16 @@ public class BJ2447 {
 		
 		square = new String[n][n];
 		
-		for(int i=0;i<n;i++) {
-			for(int j=0;j<n;j++) {
-				square[i][j]=" ";
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n; j++) {
+				square[i][j] = " ";
 			}
 		}
 		
 		star(0,0,n);
 		
-		for(int i=0;i<n;i++) {
-			for(int j=0;j<n;j++) {
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n; j++) {
 				System.out.print(square[i][j]);
 			}
 			System.out.println(" ");
