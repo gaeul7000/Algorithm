@@ -3,8 +3,8 @@ package alone;
 import java.io.*;
 import java.util.Stack;
 
-/* N0.6
- * 2021.3 3주차
+/* N0.7
+ * 2021.3 4주차
  * 
  */
 
@@ -13,29 +13,31 @@ public class BJ2606 {
 	static int computer;
 	static boolean[][] network;
 	static boolean[] isVisited;
+	static int count = 0;
 	
-	public static void dfs(int n) {
+	public static int dfs(int n) {
 
-		System.out.println(n);
+		if (isVisited[n]==false) {
+			stack.push(n);
+			isVisited[n] = true;
+		}
 		
-		stack.push(n);
-		System.out.println("들어간다"+stack.peek()+"이거");
-		isVisited[n] = true;
-		
-		while(!stack.isEmpty()) {
-			for(int i=1;i<computer+1;i++) {
-				if(network[n][i]==true&&isVisited[i]==false) {
-					
+		while (!stack.isEmpty()) {
+			for (int i = 1; i < computer+1; i++) {
+				if (network[n][i] == true && isVisited[i] == false) {
 					stack.push(i);
-					System.out.println("들어간다포"+stack.peek()+"이거");
 					isVisited[i] = true;
+					
 					dfs(i);
 				}
 			}
-			System.out.println("나온당"+stack.peek()+"이거");
+			
 			stack.pop();
+			count++;
+			break;
 		}
 	
+		return count-1;
 		
 	}
 	
@@ -52,14 +54,16 @@ public class BJ2606 {
 		String[] pair = new String[2];
 		isVisited = new boolean[computer];
 		
-		for(int i=0; i<contact; i++) {
+		for (int i = 0; i < contact; i++) {
 			pair = bufferedReader.readLine().split(" ");
 			network[Integer.parseInt(pair[0])][Integer.parseInt(pair[1])] = true;
 			network[Integer.parseInt(pair[1])][Integer.parseInt(pair[0])] = true;
 		}
 		
 		
-		dfs(1);
+		int answer = dfs(1);
+		
+		System.out.println(answer);
 	}
 
 }
