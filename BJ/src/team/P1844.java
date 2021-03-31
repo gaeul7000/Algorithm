@@ -4,24 +4,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class P1844 {
-	public static void main(String[] args) {
-		Solution s = new Solution();
-		
-		int[][] m = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,1},{0,0,0,0,1}};
-		
-		int anw = 0;
-		
-		anw = s.solution(m);
-		
-		System.out.println(anw);
-	}
 
 }
 
 class mapNode {
-	int x;
-	int y;
-	int count;
+	int x; 
+	int y; 
+	int count; //거쳐간 노드 수
 	
 	public mapNode (int x, int y, int count) {
 		this.x = x;
@@ -34,64 +23,57 @@ class Solution {
 	static Queue<mapNode> q = new LinkedList<>();
 	static boolean[][] isVisited;
 	static int[][] maps;
-	static int max = 10000;
+	static int max = 10001; // 최대 칸 수를 최악의 경우로 산정
+	
     public int solution(int[][] maps) {
-        int answer = 0;
-        
         this.maps = maps;
         
         isVisited = new boolean[maps.length][maps[0].length];
-        q.add(new mapNode(0,0,0));
-        isVisited[0][0] = true;
-        bfs(0,0,0);
         
-        answer = max;
+        bfs();
         
-        return answer;
+        return max;
     }
     
-    void bfs(int x, int y, int count) {
+    void bfs() {
     	
-    	mapNode node = q.poll();
+    	q.add(new mapNode(0,0,0));
+        isVisited[0][0] = true; // 0,0 위치부터 시작
     	
-    	if(x==4&&y==4&&max<count) {
-    		max = count;
-    	}
-    	
-    	while(node.x<=4||node.y<=4) {
+    	while (!q.isEmpty()) {
     		
-    	if(0<=node.x-1&&node.x-1<=4&&maps[x-1][y]==1&&!isVisited[x-1][y]) {
-    		isVisited[x-1][y] = true;
-    		q.add(new mapNode(x-1,y,count++));
-    		bfs(x-1,y,count);
-    	}// 동
+    		mapNode node = q.poll();
+    		int nodeX = node.x;
+    		int nodeY = node.y;
+    		int nodeCount = node.count;
+    		
+    		if (nodeX == 4 && nodeY == 4 && max > node.count) { // 목적지에 도달하고 지나쳐온 칸의 개수가 max 값보다 작을때
+    			max = node.count + 1; // 최솟값 갱신
+    		}
     	
-    	if(0<=node.x+1&&node.x+1<=4&&maps[x+1][y]==1&&!isVisited[x+1][y]) {
-    		isVisited[x+1][y] = true;
-    		q.add(new mapNode(x+1,y,count++));
-    		bfs(x+1,y,count);
-    	}// 서
+    		if (0 <= nodeY - 1 && nodeY - 1 <= 4 && maps[nodeX][nodeY-1] == 1 && !isVisited[nodeX][nodeY-1]) {
+    			isVisited[nodeX][nodeY-1] = true;
+    			q.add(new mapNode(nodeX, nodeY-1 ,nodeCount+1));
+    		}// 동
     	
-    	if(0<=node.y-1&&node.y-1<=4&&maps[x][y-1]==1&&!isVisited[x][y-1]) {
-    		isVisited[x][y-1] = true;
-    		q.add(new mapNode(x,y-1,count++));
-    		bfs(x,y-1,count);
-    	}// 남
-    	
-    	if(0<=node.y+1&&node.y+1<=4&&maps[x][y+1]==1&&!isVisited[x][y+1]) {
-    		isVisited[x][y+1] = true;
-    		q.add(new mapNode(x,y+1,count++));
-    		bfs(x,y+1,count);
-    	}// 북
-    	
-    	
-    	
-    	}
+    		if (0 <= nodeY + 1 && nodeY + 1 <= 4 && maps[nodeX][nodeY+1] == 1 && !isVisited[nodeX][nodeY+1]) {
+    			isVisited[nodeX][nodeY+1] = true;
+    			q.add(new mapNode(nodeX ,nodeY+1 ,nodeCount+1));
+    		}// 서
 
+    		if (0 <= nodeX + 1 && nodeX + 1 <= 4 && maps[nodeX+1][nodeY] == 1 && !isVisited[nodeX+1][nodeY]) {
+    			isVisited[nodeX+1][nodeY] = true;
+    			q.add(new mapNode(nodeX+1, nodeY, nodeCount+1));
+    		}// 남
     	
+    		if (0 <= nodeX - 1 && nodeX - 1 <= 4 && maps[nodeX-1][nodeY] == 1 && !isVisited[nodeX-1][nodeY]) {
+    			isVisited[nodeX-1][nodeY] = true;
+    			q.add(new mapNode(nodeX-1, nodeY, nodeCount+1));
+    		}// 북
+    	}
     	
-    	
-    	
+    	if (q.isEmpty() && max == 10001) max = -1; // q는 비었지만 최솟값 갱신이 안된경우 도달할 수 없었음을 추론
+ 
     	
     	
     }
