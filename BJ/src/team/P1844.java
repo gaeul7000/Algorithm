@@ -47,26 +47,26 @@ class Solution {
     		int nodeY = node.y;
     		int nodeCount = node.count;
     		
-    		if (nodeX == 4 && nodeY == 4 && max > node.count) { // 목적지에 도달하고 지나쳐온 칸의 개수가 max 값보다 작을때
+    		if (nodeX == maps.length-1 && nodeY == maps[0].length-1 && max > node.count) { // 목적지에 도달하고 지나쳐온 칸의 개수가 max 값보다 작을때
     			max = node.count + 1; // 최솟값 갱신
     		}
     	
-    		if (0 <= nodeY - 1 && nodeY - 1 <= 4 && maps[nodeX][nodeY-1] == 1 && !isVisited[nodeX][nodeY-1]) {
+    		if (0 <= nodeY - 1 && nodeY - 1 <= maps[0].length-1 && maps[nodeX][nodeY-1] == 1 && !isVisited[nodeX][nodeY-1]) {
     			isVisited[nodeX][nodeY-1] = true;
     			q.add(new mapNode(nodeX, nodeY-1 ,nodeCount+1));
     		}// 동
     	
-    		if (0 <= nodeY + 1 && nodeY + 1 <= 4 && maps[nodeX][nodeY+1] == 1 && !isVisited[nodeX][nodeY+1]) {
+    		if (0 <= nodeY + 1 && nodeY + 1 <= maps[0].length-1 && maps[nodeX][nodeY+1] == 1 && !isVisited[nodeX][nodeY+1]) {
     			isVisited[nodeX][nodeY+1] = true;
     			q.add(new mapNode(nodeX ,nodeY+1 ,nodeCount+1));
     		}// 서
 
-    		if (0 <= nodeX + 1 && nodeX + 1 <= 4 && maps[nodeX+1][nodeY] == 1 && !isVisited[nodeX+1][nodeY]) {
+    		if (0 <= nodeX + 1 && nodeX + 1 <= maps.length-1 && maps[nodeX+1][nodeY] == 1 && !isVisited[nodeX+1][nodeY]) {
     			isVisited[nodeX+1][nodeY] = true;
     			q.add(new mapNode(nodeX+1, nodeY, nodeCount+1));
     		}// 남
     	
-    		if (0 <= nodeX - 1 && nodeX - 1 <= 4 && maps[nodeX-1][nodeY] == 1 && !isVisited[nodeX-1][nodeY]) {
+    		if (0 <= nodeX - 1 && nodeX - 1 <= maps.length-1 && maps[nodeX-1][nodeY] == 1 && !isVisited[nodeX-1][nodeY]) {
     			isVisited[nodeX-1][nodeY] = true;
     			q.add(new mapNode(nodeX-1, nodeY, nodeCount+1));
     		}// 북
