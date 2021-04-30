@@ -62,7 +62,7 @@ class Solution {
 public class P43165 {
     public static void main(String[] args){
 
-        Solution6 s = new Solution6();
+        Solution s = new Solution();
         int[] numbers = {1, 1, 1, 1, 1};
         int target = 3;
 
