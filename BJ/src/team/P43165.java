@@ -26,8 +26,8 @@ class Solution {
         
         int count = 0;
         
-        queue.add(new node(-numbersCopy[n],index,-numbersCopy[n]));
-        queue.add(new node(numbersCopy[n],index,numbersCopy[n]));
+        queue.add(new node(-numbersCopy[n], index, -numbersCopy[n]));
+        queue.add(new node(numbersCopy[n], index, numbersCopy[n]));
         
         while(!queue.isEmpty()){
             node node = queue.poll();
@@ -37,11 +37,11 @@ class Solution {
             int s = node.sum;
             
             if(i+1 < numbersCopy.length){
-                queue.add(new node(-numbersCopy[i+1],i+1,s-numbersCopy[i+1]));
-                queue.add(new node(numbersCopy[i+1],i+1,s+numbersCopy[i+1]));
+                queue.add(new node(-numbersCopy[i+1], i+1, s-numbersCopy[i+1]));
+                queue.add(new node(numbersCopy[i+1], i+1, s+numbersCopy[i+1]));
             }
             
-            if(i == numbersCopy.length-1 && s == targetCopy) count ++;
+            if(i == numbersCopy.length - 1 && s == targetCopy) count++;
         }
         
         return count;
