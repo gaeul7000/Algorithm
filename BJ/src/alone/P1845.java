@@ -1,3 +1,5 @@
+package alone;
+
 import java.util.*;
 import java.util.Map.Entry;
 
