@@ -1,10 +1,9 @@
 package alone;
-import java.util.ArrayList;
-import java.util.Collections;
 
 class Solution {
-    static ArrayList<String> routes = new ArrayList<>();
     static StringBuilder route = new StringBuilder("");
+    static String tmproute = "Z";
+
     static String[][] ticketsCopy;
     static boolean[] isused;
 
@@ -20,13 +19,10 @@ class Solution {
                 isused[i] = true;
                 dfs(tickets[i][1], 1);
                 isused[i] = false;
-                System.out.println(route);
             }
         }
 
-        Collections.sort(routes);
-
-        answer = routes.get(0).split(" ");
+        answer = tmproute.split(" ");
 
         return answer;
     }
@@ -38,7 +34,7 @@ class Solution {
         boolean flag = false;
 
         if(index == ticketsCopy.length){
-            routes.add(route.toString());
+            if(route.toString().compareTo(tmproute) < 0) tmproute = route.toString();
             return;
         }
 
@@ -46,15 +42,42 @@ class Solution {
             if(des.equals(ticketsCopy[i][0]) && !isused[i]){
                 isused[i] = true;
                 dfs(ticketsCopy[i][1], index + 1);
+                if(!flag) {
+                    System.out.println(route);
+                    route.delete(route.length() - 4, route.length());
+                    System.out.println(route);
+                }
                 isused[i] = false;
+                
                 flag = true;
             }
+
         }
 
-        if(!flag) route.delete(route.length() - 4, route.length());
-
     }
-}
-public class P43164 {
+}public class P43164 {
+
+    public static void main(String[] args) throws Exception {
+
+        Solution s = new Solution();
+
+        //String[][] st = {{"ICN", "AAA"},{"ICN", "BBB"},{"BBB", "ICN"}};
+
+        //String[][] st = {{"ICN", "AAA"},{"AAA", "CCC"},{"AAA", "DDD"}, {"DDD", "BBB"}, {"BBB", "AAA"}};
+        
+        //String[][] st = {{"ICN", "AAA"},{"AAA", "BBB"},{"AAA", "CCC"}, {"BBB", "DDD"}, {"CCC", "AAA"}};
+
+        //String[][] st = {{"ICN", "SFO"},{"ICN", "ATL"},{"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL", "SFO"}};
+
+        //String[][] st = {{"ICN", "AAA"},{"AAA","BBB"},{"BBB", "AAA"}, {"AAA", "ICN"}, {"ICN", "AAA"}};
+
+        String[][] st = {{"ICN", "BBB"},{"ICN","CCC"},{"CCC", "DDD"}, {"DDD", "CCC"}, {"BBB", "DDD"}, {"DDD", "BBB"}, {"BBB", "ICN"}, {"CCC", "BBB"}};
+
+        //String[][] st = {{"ICN", "AAA"},{"ICN","AAA"},{"ICN", "AAA"}, {"AAA", "ICN"}, {"AAA", "ICN"}};
+
+        String[] an = s.solution(st);
+
+       for(String x: an) System.out.println(x);
+    }
     
 }
