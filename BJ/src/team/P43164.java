@@ -24,9 +24,7 @@ class Solution {
     }
 
     public void dfs(String route, String des, int index){
-
-        boolean flag = false;
-
+        
         if(index == ticketsCopy.length){
             if(route.toString().compareTo(tmproute) < 0) tmproute = route.toString();
             return;
