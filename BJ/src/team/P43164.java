@@ -1,7 +1,5 @@
-package alone;
-
+package team;
 class Solution {
-    static StringBuilder route = new StringBuilder("");
     static String tmproute = "Z";
 
     static String[][] ticketsCopy;
@@ -14,10 +12,8 @@ class Solution {
         
         for(int i = 0; i < tickets.length; i++){
             if(tickets[i][0].equals("ICN")){
-                route.setLength(0);
-                route.append("ICN ");
                 isused[i] = true;
-                dfs(tickets[i][1], 1);
+                dfs("ICN "+tickets[i][1], tickets[i][1], 1);
                 isused[i] = false;
             }
         }
@@ -27,9 +23,7 @@ class Solution {
         return answer;
     }
 
-    public void dfs(String des, int index){
-
-        route.append(des + " ");
+    public void dfs(String route, String des, int index){
 
         boolean flag = false;
 
@@ -41,21 +35,24 @@ class Solution {
         for(int i = 0; i < ticketsCopy.length; i++){
             if(des.equals(ticketsCopy[i][0]) && !isused[i]){
                 isused[i] = true;
-                dfs(ticketsCopy[i][1], index + 1);
-                if(!flag) {
-                    System.out.println(route);
-                    route.delete(route.length() - 4, route.length());
-                    System.out.println(route);
-                }
+                dfs(route + " " + ticketsCopy[i][1], ticketsCopy[i][1], index + 1);
                 isused[i] = false;
-                
-                flag = true;
             }
-
         }
-
     }
-}public class P43164 {
+}
+
+/*
+* 1차 이슈 > 메모리 초과
+* 
+* dfs 호출시마다 결과를 arrayList에 add하는 과정에서 메모리 초과 발생
+* >> 결과를 add 하지 않고 결과를 비교하여 최적의 값으로 갱신하는 방법 사용
+*
+* 2차 이슈 > 분기 후 노드가 끊겼을때 (티켓을 다 사용하지 못했는데 경로가 끊긴 경우) 분기점이 삭제되지 않음
+*
+* >> dfs 매개변수로 경로값을 전달해 해결
+*/
+public class P43164 {
 
     public static void main(String[] args) throws Exception {
 
