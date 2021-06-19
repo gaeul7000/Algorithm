@@ -54,6 +54,7 @@ class Solution1829 {
     
     public int coloring() {
     	int answer = 0;
+    	
     	while(!queue.isEmpty()) {
     		location node = queue.poll();
         	int r = node.x;
