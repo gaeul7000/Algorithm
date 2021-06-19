@@ -73,7 +73,6 @@ class Solution1829 {
     }
 }
 
-
 public class P1829 {
 
 }
