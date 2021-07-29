@@ -3,6 +3,8 @@ package team;
 import java.util.LinkedList;
 import java.util.Queue;
 
+//í† ë§ˆí† 
+
 class ripeLocation{
 	int x;
 	int y;
@@ -17,20 +19,20 @@ class ripeLocation{
 class Solution7576{
 	public int solution(int x, int y, int arr[][]) {
 		int answer = 0;
-		int notRipeTo = x * y; //ÀüÃ¼ Åä¸¶Åä °³¼ö
+		int notRipeTo = x * y; //ì „ì²´ í† ë§ˆí†  ê°œìˆ˜
 		Queue<ripeLocation> q = new LinkedList<>();
 		
 		int[] dr = {0, 0, -1, 1};
-		int[] dc = {-1, 1, 0, 0}; //¿Þ ¿À À§ ¾Æ
+		int[] dc = {-1, 1, 0, 0}; //ì™¼ ì˜¤ ìœ„ ì•„
 		
 		for(int i = 0; i < x; i++) {
 			for(int j = 0; j < y; j++) {
 				if(arr[i][j] == 1) q.add(new ripeLocation(i, j, 0));
-				if(arr[i][j] == -1) notRipeTo -= 1; //Åä¸¶Åä ¾ø´Â »óÀÚ °³¼ö ÆÄ¾Ç
+				if(arr[i][j] == -1) notRipeTo -= 1; //í† ë§ˆí†  ì—†ëŠ” ìƒìž ê°œìˆ˜ íŒŒì•…
 			}
 		}
 		
-		notRipeTo = notRipeTo - q.size(); //¾ÈÀÍÀº Åä¸¶Åä °³¼ö 
+		notRipeTo = notRipeTo - q.size(); //ì•ˆìµì€ í† ë§ˆí†  ê°œìˆ˜ 
 		
 		while(!q.isEmpty()) {
 			ripeLocation node = q.poll();
