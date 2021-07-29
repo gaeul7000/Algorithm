@@ -2,7 +2,7 @@ package team;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
+// 타겟 넘버 만들기
 class node {
     int index;
     int sum;
