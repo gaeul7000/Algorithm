@@ -7,10 +7,11 @@ public class P1844 {
 
 }
 
+// ê²Œì„ ë§µ ìµœë‹¨ê±°ë¦¬ ì°¾ê¸°
 class mapNode {
 	int x; 
 	int y; 
-	int count; //°ÅÃÄ°£ ³ëµå ¼ö
+	int count; //ê±°ì³ê°„ ë…¸ë“œ ìˆ˜
 	
 	public mapNode (int x, int y, int count) {
 		this.x = x;
@@ -23,7 +24,7 @@ class Solution {
 	static Queue<mapNode> q = new LinkedList<>();
 	static boolean[][] isVisited;
 	static int[][] maps;
-	static int max = 10001; // ÃÖ´ë Ä­ ¼ö¸¦ ÃÖ¾ÇÀÇ °æ¿ì·Î »êÁ¤
+	static int max = 10001; // ìµœëŒ€ ì¹¸ ìˆ˜ë¥¼ ìµœì•…ì˜ ê²½ìš°ë¡œ ì‚°ì •
 	
     public int solution(int[][] maps) {
         this.maps = maps;
@@ -38,7 +39,7 @@ class Solution {
     void bfs() {
     	
     	q.add(new mapNode(0,0,0));
-        isVisited[0][0] = true; // 0,0 À§Ä¡ºÎÅÍ ½ÃÀÛ
+        isVisited[0][0] = true; // 0,0 ìœ„ì¹˜ë¶€í„° ì‹œì‘
     	
     	while (!q.isEmpty()) {
     		
@@ -47,32 +48,32 @@ class Solution {
     		int nodeY = node.y;
     		int nodeCount = node.count;
     		
-    		if (nodeX == maps.length-1 && nodeY == maps[0].length-1 && max > node.count) { // ¸ñÀûÁö¿¡ µµ´ŞÇÏ°í Áö³ªÃÄ¿Â Ä­ÀÇ °³¼ö°¡ max °ªº¸´Ù ÀÛÀ»¶§
-    			max = node.count + 1; // ÃÖ¼Ú°ª °»½Å
+    		if (nodeX == maps.length-1 && nodeY == maps[0].length-1 && max > node.count) { // ëª©ì ì§€ì— ë„ë‹¬í•˜ê³  ì§€ë‚˜ì³ì˜¨ ì¹¸ì˜ ê°œìˆ˜ê°€ max ê°’ë³´ë‹¤ ì‘ì„ë•Œ
+    			max = node.count + 1; // ìµœì†Ÿê°’ ê°±ì‹ 
     		}
     	
     		if (0 <= nodeY - 1 && nodeY - 1 <= maps[0].length-1 && maps[nodeX][nodeY-1] == 1 && !isVisited[nodeX][nodeY-1]) {
     			isVisited[nodeX][nodeY-1] = true;
     			q.add(new mapNode(nodeX, nodeY-1 ,nodeCount+1));
-    		}// µ¿
+    		}// ë™
     	
     		if (0 <= nodeY + 1 && nodeY + 1 <= maps[0].length-1 && maps[nodeX][nodeY+1] == 1 && !isVisited[nodeX][nodeY+1]) {
     			isVisited[nodeX][nodeY+1] = true;
     			q.add(new mapNode(nodeX ,nodeY+1 ,nodeCount+1));
-    		}// ¼­
+    		}// ì„œ
 
     		if (0 <= nodeX + 1 && nodeX + 1 <= maps.length-1 && maps[nodeX+1][nodeY] == 1 && !isVisited[nodeX+1][nodeY]) {
     			isVisited[nodeX+1][nodeY] = true;
     			q.add(new mapNode(nodeX+1, nodeY, nodeCount+1));
-    		}// ³²
+    		}// ë‚¨
     	
     		if (0 <= nodeX - 1 && nodeX - 1 <= maps.length-1 && maps[nodeX-1][nodeY] == 1 && !isVisited[nodeX-1][nodeY]) {
     			isVisited[nodeX-1][nodeY] = true;
     			q.add(new mapNode(nodeX-1, nodeY, nodeCount+1));
-    		}// ºÏ
+    		}// ë¶
     	}
     	
-    	if (q.isEmpty() && max == 10001) max = -1; // q´Â ºñ¾úÁö¸¸ ÃÖ¼Ú°ª °»½ÅÀÌ ¾ÈµÈ°æ¿ì µµ´ŞÇÒ ¼ö ¾ø¾úÀ½À» Ãß·Ğ
+    	if (q.isEmpty() && max == 10001) max = -1; // qëŠ” ë¹„ì—ˆì§€ë§Œ ìµœì†Ÿê°’ ê°±ì‹ ì´ ì•ˆëœê²½ìš° ë„ë‹¬í•  ìˆ˜ ì—†ì—ˆìŒì„ ì¶”ë¡ 
  
     	
     	
