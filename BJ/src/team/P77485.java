@@ -1,7 +1,7 @@
 package team;
 
 import java.util.ArrayList;
-
+//행렬 테두리 회전 문제
 class Solution {
     static int[][] arr;
     public int[] solution(int rows, int columns, int[][] queries) {
