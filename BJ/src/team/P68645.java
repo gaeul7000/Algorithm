@@ -1,10 +1,10 @@
 package team;
 
 /* N0.3
- * 2021.2 4����
+ * 2021.2 4ÁÖÂ÷
  * 
  */
-
+// 삼각형 채우기
 class Solution{
 	public int[] solution(int n) {
 	        int[] answer;
