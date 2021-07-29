@@ -4,10 +4,10 @@ import java.io.*;
 import java.util.Arrays;
 
 /* N0.2
- * 2021.2 3����
+ * 2021.2 3ÁÖÂ÷
  * 
  */
-
+// 비밀지도 구하기
 public class P17681 {
 	public static void main(String []args) throws Exception {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
