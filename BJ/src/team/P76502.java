@@ -2,7 +2,7 @@ package team;
 
 import java.util.Stack;
 
-// 괄호 스택 문제
+// 괄호 체크 스택 문제
 
 class Solution {
     int count = 0;
