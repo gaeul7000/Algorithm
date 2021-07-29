@@ -2,7 +2,7 @@ package alone;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
+//스테이지별 성공률
 class Solution {
     public int[] solution(int N, int[] stages) {
         int[] answer = new int[N];
