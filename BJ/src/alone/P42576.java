@@ -1,5 +1,7 @@
 package alone;
 
+//hash 사용법
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
