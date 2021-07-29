@@ -1,7 +1,7 @@
 package alone;
 
 import java.util.Arrays;
-
+//k번째 수 구하기
 class Solution {
     
     public int[] solution(int[] array, int[][] commands) {
