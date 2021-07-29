@@ -3,6 +3,8 @@ package team;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// 그림 영역 갯수 찾기
+
 class location {
 	int x;
 	int y;
@@ -20,7 +22,7 @@ class Solution1829 {
 	static Queue<location> queue = new LinkedList<>();
 	static boolean[][] isVisited;
 	static int[] dr = {0, 0, -1, 1};
-	static int[] dc = {-1, 1, 0, 0}; //�� �� �� ��
+	static int[] dc = {-1, 1, 0, 0}; //¿Þ ¿À À§ ¾Æ
 	
     public int[] solution(int m, int n, int[][] picture) {
         int[] answer = {0, 0};
