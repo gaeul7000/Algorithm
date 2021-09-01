@@ -10,29 +10,16 @@ public class P72411 {
     
     static HashMap<String,Integer> map = new HashMap<>();
     static HashMap<Integer,Integer> maxMap = new HashMap<>();
-    static String[] orderCopy;
-    static int start = 0;
-    static int maxOrder = 0;
 
     public String[] solution(String[] orders, int[] course) {
         String[] answer;
 
-        String total = "";
-        orderCopy = orders.clone();
-
-        for(String x: orders) {
-            for(char y: x.toCharArray()) {
-                if(!total.contains(Character.toString(y))) total += y;
-            }
-            maxOrder = Math.max(maxOrder, x.length());
-        }
-        start = course[0];
-        maxOrder = Math.min(maxOrder, course[course.length - 1]);
-
         String tmp = "";
 
-        boolean[] visited = new boolean[total.length()];
-        combi(total.split(""), visited, 0, total.length(), maxOrder);
+        for(String x: orders) {
+            boolean[] visited = new boolean[x.length()];
+            combi(x.split(""), visited, 0, x.length(), x.length());
+        }
 
         for(int x: course) {
             for(Entry<String, Integer> entry: map.entrySet()) {
@@ -41,29 +28,30 @@ public class P72411 {
         }
 
         answer = tmp.split(",");
-
         Arrays.sort(answer);
+
         return answer;
     }
 
     public void combi(String[] arr, boolean[] visited, int start, int n, int r) {
 
-        if(r >= start || r <= maxOrder) {
-            ArrayList<String> tmpArr = new ArrayList<>();
-            String tmp = "";
-            for(int i = 0; i < arr.length; i++) {
-                if(visited[i]) tmpArr.add(arr[i]);
-            }
-            Collections.sort(tmpArr);
-    
-            for(String x: tmpArr) tmp += x;
-            
-            map.put(tmp, check(tmp));
-            
+        ArrayList<String> tmpArr = new ArrayList<>();
+
+        String tmp = "";
+        for(int i = 0; i < arr.length; i++) {
+            if(visited[i]) tmpArr.add(arr[i]);
         }
-        if(r == 0 ) {
-            return;
-        }
+        Collections.sort(tmpArr);
+        
+        for(String x: tmpArr) tmp += x;
+
+        if(map.containsKey(tmp)) map.put(tmp, map.get(tmp) + 1);
+        else map.put(tmp, 1);
+
+        if(maxMap.containsKey(tmp.length())) maxMap.put(tmp.length(), Math.max(maxMap.get(tmp.length()), map.get(tmp)));
+        else maxMap.put(tmp.length(), map.get(tmp));
+
+        if(r == 0 )  return;
 
         for(int i = start; i < n; i++) {
             visited[i] = true;
@@ -73,29 +61,10 @@ public class P72411 {
         }
     }
 
-    public int check(String word) {
-        String[] words = word.split("");
-        int flag = 0;
-        int count = 0;
-
-        for(String x: orderCopy) {
-            if(x.length() >= words.length) {
-                for(String y: words) {
-                    if(x.contains(y)) flag++;
-                }
-                if(flag == word.length()) count++;
-                flag = 0;
-            }
-        }
-        if(maxMap.containsKey(words.length)) maxMap.put(words.length, Math.max(maxMap.get(words.length),count));
-        else maxMap.put(words.length, count);
-        return count;
-    }
-
     public static void main(String[] args) {
         P72411 s = new P72411();
 
-        String[] arr = {"ABCD", "ABCD", "ABCD"};
+        String[] arr = {"XYZ", "XWY", "WXA"};
         int[] arr2 = {2, 3, 4};
 
         String[] answer = s.solution(arr, arr2);
