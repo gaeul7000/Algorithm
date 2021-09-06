@@ -7,7 +7,7 @@ public class P60058 {
         String answer = "";
 
         if(checkRight(p)) return p;
-        else split(p);
+        else answer = split(p);
 
         return answer;
     }
@@ -16,7 +16,7 @@ public class P60058 {
         Stack<Character> st = new Stack<>();
 
         for(char c: tmp.toCharArray()) {
-            if(!st.isEmpty() && st.peek() == c) st.pop();
+            if(!st.isEmpty() &&(st.peek() == '(' && c == ')')) st.pop();
             else st.push(c);
         }
         
@@ -71,7 +71,7 @@ public class P60058 {
     public static void main(String[] args) {
         P60058 p = new P60058();
 
-        String s = "(()())()";
+        String s = ")(";
         String answer = p.split(s);
 
         System.out.println(answer);
