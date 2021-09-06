@@ -3,18 +3,18 @@ package team;
 import java.util.LinkedList;
 import java.util.Queue;
 // 타겟 넘버 만들기
-class node {
+class node_2 {
     int index;
     int sum;
     
-    public node(int i, int s){
+    public node_2(int i, int s){
         this.index = i;
         this.sum = s;
     }
 }
 
 class P43165 {
-    static Queue<node> queue = new LinkedList<>();
+    static Queue<node_2> queue = new LinkedList<>();
     static int[] numbersCopy;
     static int targetCopy;
     
@@ -23,18 +23,18 @@ class P43165 {
         
         int count = 0;
         
-        queue.add(new node(index, -numbersCopy[n]));
-        queue.add(new node(index, numbersCopy[n]));
+        queue.add(new node_2(index, -numbersCopy[n]));
+        queue.add(new node_2(index, numbersCopy[n]));
         
         while(!queue.isEmpty()){
-            node node = queue.poll();
+            node_2 node = queue.poll();
             
             int i = node.index;
             int s = node.sum;
             
             if(i+1 < numbersCopy.length){
-                queue.add(new node(i + 1, s-numbersCopy[i + 1]));
-                queue.add(new node(i + 1, s+numbersCopy[i + 1]));
+                queue.add(new node_2(i + 1, s-numbersCopy[i + 1]));
+                queue.add(new node_2(i + 1, s+numbersCopy[i + 1]));
             }
             
             if(i == numbersCopy.length - 1 && s == targetCopy) count++;
