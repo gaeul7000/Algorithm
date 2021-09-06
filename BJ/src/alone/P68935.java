@@ -1,7 +1,7 @@
 package alone;
 import java.util.ArrayList;
 
-class Solution {
+class P68935 {
     public int solution(int n) {
         int answer = 0;
         ArrayList<Integer> three = new ArrayList<>();
@@ -39,6 +39,3 @@ class Solution {
 *
 */
 
-public class P68935 {
-    
-}

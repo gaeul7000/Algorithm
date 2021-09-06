@@ -1,11 +1,10 @@
 package team;
 
 import java.util.LinkedList;
-import java.util.ArrayList;
 import java.util.Queue;
 
 /* N0.5
- * 2021.3 2ÁÖÂ÷
+ * 2021.3 2ï¿½ï¿½ï¿½ï¿½
  * 
  */
 
@@ -25,7 +24,7 @@ class Solution3{
 		int answer=0;
 		final int MAX = 100001;
 		int count=0;
-		boolean[] isVisited = new boolean[MAX]; //¹æ¹®Àº true
+		boolean[] isVisited = new boolean[MAX]; //ï¿½æ¹®ï¿½ï¿½ true
 		
 		Queue<Node> q = new LinkedList<Node>();
 		
@@ -59,9 +58,9 @@ class Solution3{
 				isVisited[pos-1] = true;
 				q.add(new Node(pos-1,cot+1));
 			}
-			if(pos+1<MAX&&pos+1<m&&!isVisited[pos+1]) { //°³¸ÛÃ»ÀÌÀÎºÎºÐ : pos+1°ú pos*2´Â ´ç¿¬È÷ MAX°ªÀ» ³Ñ¾î°¥ °¡´É¼ºÀÌ ÀÖ°í, 
-														//¹Ù¿îµå¸¦ ³Ñ¾î°£ ÀÎµ¦½º¸¦ ÂüÁ¶ÇÏ¸é ´ç¿¬È÷ ¿¡·¯°¡³­´Ù¿ä.
-														//ÀÎµ¦½º°ªÀ» ¸ÕÀú ±¸ÇÏ°í ¹üÀ§¸¦ ³Ñ¾î°¥°æ¿ì ÇØ´ç Á¶°ÇÀ» ¾Æ¿¹ Å¸Áö ¾Ê°ÔÇØ¾ßÁö!!!!!!!!!!!!!!!!!
+			if(pos+1<MAX&&pos+1<m&&!isVisited[pos+1]) { //ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ÎºÎºï¿½ : pos+1ï¿½ï¿½ pos*2ï¿½ï¿½ ï¿½ç¿¬ï¿½ï¿½ MAXï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½, 
+														//ï¿½Ù¿ï¿½å¸¦ ï¿½Ñ¾î°£ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ç¿¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¿ï¿½.
+														//ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ Å¸ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½!!!!!!!!!!!!!!!!!
 				isVisited[pos+1] = true;
 				q.add(new Node(pos+1,cot+1));
 			}

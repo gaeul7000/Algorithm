@@ -2,7 +2,7 @@ package alone;
 
 import java.util.ArrayList;
 
-class Solution {
+class P42840 {
     public int[] solution(int[] answers) {
         int[] answer;
         

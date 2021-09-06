@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-class Solution {
+class P42576 {
     public String solution(String[] participant, String[] completion) {
         String answer = "";
         

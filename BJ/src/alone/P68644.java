@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-class Solution {
+class P68644 {
     static Map<Integer,Integer> map = new HashMap<>();
     static int sum = 0;
     public int[] solution(int[] numbers) {
@@ -45,8 +45,4 @@ class Solution {
             visited[i] = false;
         }
     }
-}
-
-public class P68644 {
-    
 }

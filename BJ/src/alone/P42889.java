@@ -3,7 +3,7 @@ package alone;
 import java.util.ArrayList;
 import java.util.Collections;
 //스테이지별 성공률
-class Solution {
+class P42889 {
     public int[] solution(int N, int[] stages) {
         int[] answer = new int[N];
         double[] stage = new double[N + 1];
@@ -44,8 +44,4 @@ class Solution {
 
         return answer;
     }
-}
-
-public class P42889 {
-    
 }

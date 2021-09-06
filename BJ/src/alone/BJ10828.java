@@ -3,7 +3,7 @@ package alone;
 import java.util.Scanner;
 
 /* N0.1
- * 2021.2 2ÁÖÂ÷
+ * 2021.2 2ï¿½ï¿½ï¿½ï¿½
  * 
  */
 
@@ -36,6 +36,8 @@ public class BJ10828 {
 			
 			stackSize--;
 		}
+
+		scanner.close();
 	}
 
 	static void push(int arr[], int x) {

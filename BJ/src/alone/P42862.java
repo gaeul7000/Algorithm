@@ -1,6 +1,6 @@
 package alone;
 
-class Solution {
+class P42862 {
     public int solution(int n, int[] lost, int[] reserve) {
         int answer = 0;
         int count = 0; //여분을 갖고있는데 훔침당한 사람의 수 
@@ -33,8 +33,4 @@ class Solution {
         }
         return answer;
     }
-}
-
-public class P42862 {
-    
 }

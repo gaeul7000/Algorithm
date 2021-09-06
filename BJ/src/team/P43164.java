@@ -2,7 +2,7 @@ package team;
 
 // 여행경로 찾기
 
-class Solution {
+class P43164 {
     static String tmproute = "Z";
 
     static String[][] ticketsCopy;
@@ -41,7 +41,6 @@ class Solution {
             }
         }
     }
-}
 
 /*
 * 1차 이슈 > 메모리 초과
@@ -53,11 +52,9 @@ class Solution {
 *
 * >> dfs 매개변수로 경로값을 전달해 해결
 */
-public class P43164 {
-
     public static void main(String[] args) throws Exception {
 
-        Solution s = new Solution();
+        P43164 s = new P43164();
 
         //String[][] st = {{"ICN", "AAA"},{"ICN", "BBB"},{"BBB", "ICN"}};
 

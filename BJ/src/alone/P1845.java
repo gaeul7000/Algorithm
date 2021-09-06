@@ -1,9 +1,8 @@
 package alone;
 
 import java.util.*;
-import java.util.Map.Entry;
 
-class Solution {
+class P1845 {
     static int count = 0;
     
     public int solution(int[] nums) {
@@ -21,11 +20,9 @@ class Solution {
         else return map.size();
     }
     
-}
-public class P1845 {
     public static void main(String[] args) throws Exception {
 
-        Solution s = new Solution();
+        P1845 s = new P1845();
 
         int[] st = {3, 3, 3, 2, 2, 2};
         

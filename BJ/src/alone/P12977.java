@@ -3,7 +3,7 @@ package alone;
 
 import java.util.ArrayList;
 
-class Solution {
+class P12977 {
     static ArrayList<Integer> checkarr = new ArrayList<>();
     static int count = 0;
     public int solution(int[] nums) {
@@ -49,8 +49,4 @@ class Solution {
         }
         return true;
     }
-}
-
-public class P12977 {
-    
 }

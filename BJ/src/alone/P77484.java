@@ -1,6 +1,6 @@
 package alone;
 
-class Solution {
+class P77484 {
     public int[] solution(int[] lottos, int[] win_nums) {
         int[] answer = new int[2];
         
@@ -53,8 +53,4 @@ class Solution {
         
         return answer;
     }
-}
-
-public class P77484 {
-    
 }

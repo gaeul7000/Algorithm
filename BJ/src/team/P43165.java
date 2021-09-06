@@ -13,7 +13,7 @@ class node {
     }
 }
 
-class Solution {
+class P43165 {
     static Queue<node> queue = new LinkedList<>();
     static int[] numbersCopy;
     static int targetCopy;
@@ -54,12 +54,9 @@ class Solution {
     
         return answer;
     }
-}
-
-public class P43165 {
     public static void main(String[] args){
 
-        Solution s = new Solution();
+        P43165 s = new P43165();
         
         int[] numbers = {1, 1, 1, 1, 1};
         int target = 3;

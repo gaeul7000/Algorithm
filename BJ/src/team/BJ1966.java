@@ -6,7 +6,7 @@ import java.util.Collections;
 
 
 /* N0.1
- * 2021.2 2ÁÖÂ÷
+ * 2021.2 2ï¿½ï¿½ï¿½ï¿½
  * 
  */
 
@@ -16,7 +16,7 @@ public class BJ1966 {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		int testCount = scanner.nextInt(); //test case °³¼ö
+		int testCount = scanner.nextInt(); //test case ï¿½ï¿½ï¿½ï¿½
 		int[] result = new int[testCount];
 		for(int i=0;i<result.length;i++) {
 			result[i]=0;
@@ -24,8 +24,8 @@ public class BJ1966 {
 		
 		for(int i=0;i<testCount;i++) {
 			Scanner scanner2 = new Scanner(System.in);
-			int index = scanner2.nextInt(); //ÇÁ¸°ÅÍ¿¡ µé¾î°¥ ¹®¼­ °¹¼ö
-			int resultIndex = scanner2.nextInt(); //¾Ë°íÀÚ ÇÏ´Â ¹®¼­ÀÇ ¼ø¼­
+			int index = scanner2.nextInt(); //ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			int resultIndex = scanner2.nextInt(); //ï¿½Ë°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						
 			int count = index-1;
 			
@@ -36,7 +36,7 @@ public class BJ1966 {
 			
 			int[] copyDocuments = documents.clone();
 			
-			Integer[] sortedDocuments = new Integer[index]; //¹®¼­¸¦ ³»¸²Â÷¼øÀ¸·Î Á¤·ÄÇÒ ¹è¿­ ¼±¾ð
+			Integer[] sortedDocuments = new Integer[index]; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½
 			for(int j=0;j<documents.length;j++) {
 				sortedDocuments[j] = documents[j];
 			}
@@ -66,11 +66,14 @@ public class BJ1966 {
 					
 				}
 			}	
+			scanner2.close();
 		}
 		
 		for(int i=0;i<testCount;i++) {
 			System.out.println(result[i]);
 		}
+		
+		scanner.close();
 		
 	}
 

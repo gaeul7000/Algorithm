@@ -3,10 +3,6 @@ package team;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class P1844 {
-
-}
-
 // 게임 맵 최단거리 찾기
 class mapNode {
 	int x; 
@@ -20,10 +16,10 @@ class mapNode {
 	}
 }
 
-class Solution {
+class P1844 {
 	static Queue<mapNode> q = new LinkedList<>();
 	static boolean[][] isVisited;
-	static int[][] maps;
+	int[][] maps;
 	static int max = 10001; // 최대 칸 수를 최악의 경우로 산정
 	
     public int solution(int[][] maps) {

@@ -3,7 +3,7 @@ package alone;
 
 import java.util.ArrayList;
 
-class Solution {
+class P72410 {
     public String solution(String new_id) {
         String answer = "";
         
@@ -72,7 +72,7 @@ class Solution {
     }
 }
 
-class Solution2 { //정규식사용
+class P72410_2 { //정규식사용
     public String solution(String new_id) {
         new_id = new_id.toLowerCase();
 
@@ -96,8 +96,4 @@ class Solution2 { //정규식사용
 
         return new_id;
     }
-}
-
-public class P72410 {
-    
 }

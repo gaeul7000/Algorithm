@@ -2,7 +2,7 @@ package alone;
 
 import java.util.Arrays;
 //k번째 수 구하기
-class Solution {
+class P42748 {
     
     public int[] solution(int[] array, int[][] commands) {
         int[] answer = new int[commands.length];
@@ -31,11 +31,10 @@ class Solution {
         
         return newArray[find-1];
     }
-}
-public class App {
+
     public static void main(String[] args) throws Exception {
 
-        Solution s = new Solution();
+        P42748 s = new P42748();
 
         int[] st = {1, 5, 2, 6, 3, 7, 4};
         int[][] sr = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
