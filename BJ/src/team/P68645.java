@@ -5,7 +5,7 @@ package team;
  * 
  */
 // 삼각형 채우기
-class Solution{
+class P68645{
 	public int[] solution(int n) {
 	        int[] answer;
 	        int[][] triangle = new int[n][n];
@@ -58,10 +58,4 @@ class Solution{
 		 
 		 return max;
 	 }
-}
-
-public class P68645 {
-		public static void main(String[] args) {
-			
-		}
 }

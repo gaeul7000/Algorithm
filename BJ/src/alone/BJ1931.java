@@ -7,7 +7,7 @@ import java.util.Collections;
 
 
 /* N0.3
- * 2021.2 4ÁÖÂ÷
+ * 2021.2 4ï¿½ï¿½ï¿½ï¿½
  * 
  */
 class Meet implements Comparable<Meet>{
@@ -33,7 +33,6 @@ class Meet implements Comparable<Meet>{
 	
 	@Override
 	public int compareTo(Meet meet) {
-		// TODO Auto-generated method stub
 		return start - meet.start;
 	}
 }
@@ -52,9 +51,9 @@ public class BJ1931 {
 			data = bufferedReader.readLine().split(" ");
 			data_n = Arrays.stream(data).mapToInt(Integer::parseInt).toArray();
 			list.add(new Meet(data_n[0],data_n[1]));
-		} // ÀÔ·Â¹Þ±â
+		} // ï¿½Ô·Â¹Þ±ï¿½
 		
-		Collections.sort(list); // ½ÃÀÛ ½Ã°£ ¼øÀ¸·Î Á¤·Ä
+		Collections.sort(list); // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 		int time = list.get(testCount-1).getStart() - list.get(0).getStart();
 		int meetingCount = 0;

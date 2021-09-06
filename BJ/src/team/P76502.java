@@ -4,7 +4,7 @@ import java.util.Stack;
 
 // 괄호 체크 스택 문제
 
-class Solution {
+class P76502 {
     int count = 0;
     
     public int solution(String s) {
@@ -62,12 +62,9 @@ class Solution {
         s[s.length-1] = k;
 
     }
-}
-
-public class App {
     public static void main(String[] args) throws Exception {
 
-        Solution s = new Solution();
+        P76502 s = new P76502();
 
         String st = "}]()[{";
         int anw = s.solution(st);

@@ -2,7 +2,7 @@ package team;
 
 import java.util.ArrayList;
 //행렬 테두리 회전 문제
-class Solution {
+class P77485 {
     static int[][] arr;
     public int[] solution(int rows, int columns, int[][] queries) {
         int[] answer = new int[queries.length];
@@ -68,8 +68,4 @@ class Solution {
 
         return min;
     }
-}
-
-public class P77485 {
-    
 }

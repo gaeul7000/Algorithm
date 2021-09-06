@@ -20,7 +20,6 @@ class P43165 {
     
     public int bfs(int n){
         int index = 0;
-        int sum = 0;
         
         int count = 0;
         
