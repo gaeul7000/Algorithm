@@ -93,7 +93,7 @@ class P72410_2 { //정규식사용
                 new_id += new_id.charAt(new_id.length()-1);
             }
         }
-
+ 
         return new_id;
     }
 }
