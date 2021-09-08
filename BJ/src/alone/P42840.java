@@ -32,8 +32,8 @@ class P42840 {
 
         for(int i = 0; i < ans.size(); i++){
             answer[i] = ans.get(i);
-        }
-
+        } 
+ 
         return answer;
     }
 }
