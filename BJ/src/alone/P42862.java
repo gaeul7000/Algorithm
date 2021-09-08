@@ -30,7 +30,7 @@ class P42862 {
                     break;
                 }
             }
-        }
+        } 
         return answer;
     }
 }
