@@ -78,6 +78,6 @@ class Solution3{
 	
 }
 
-public class BJ1697 {
+public class BJ1697 { 
 
 }
