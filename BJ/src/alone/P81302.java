@@ -30,7 +30,7 @@ public class P81302 {
                     if(Math.abs(arr.get(i)[0] - arr.get(j)[0]) + Math.abs(arr.get(i)[1] - arr.get(j)[1]) > 2) continue;
                     else if(arr.get(i)[0] == arr.get(j)[0] && place[arr.get(i)[0]].charAt((arr.get(i)[1]+arr.get(j)[1])/2) == 'X') continue;
                     else if(arr.get(i)[1] == arr.get(j)[1] && place[(arr.get(i)[0]+arr.get(j)[0])/2].charAt(arr.get(i)[1]) == 'X') continue;
-                    else if(place[arr.get(i)[1]].charAt(arr.get(j)[0]) == 'X' && place[arr.get(i)[0]].charAt(arr.get(j)[1]) == 'X') continue;
+                    else if(place[arr.get(i)[0]].charAt(arr.get(j)[1]) == 'X' && place[arr.get(j)[0]].charAt(arr.get(i)[1]) == 'X') continue;
                     else return 0;
                 }
             }
