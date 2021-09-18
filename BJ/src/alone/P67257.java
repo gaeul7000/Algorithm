@@ -25,19 +25,6 @@ public class P67257 {
 
         prem(ex.split(""), output, visited, 0, ex.length(), ex.length());
 
-        // for(String x: output) {
-        //     for(int i=0; i < real.size() - 1; i++) {
-        //         if(x.equals(real.get(i))) {
-        //             int tmp1 = Integer.parseInt(real.get(i - 1));
-        //             int tmp2 = Integer.parseInt(real.get(i + 1));
-        //             real.remove(i - 1);
-        //             real.remove(i - 1);
-        //             real.remove(i - 1);
-        //             real.add(i - 1, cal(tmp1, tmp2, x));
-        //         }
-        //     }
-        // }
-
         for(String x: realOut) {
             max = Math.max(max, ans(express, x));
         }
@@ -49,10 +36,8 @@ public class P67257 {
         if(depth == r) {
             String tmp = "";
             for(String x: out) {
-                System.out.print(x);
                 tmp += x;
             }
-            System.out.println(" ");
             realOut.add(tmp);
             return;
         }
@@ -67,8 +52,8 @@ public class P67257 {
         }
     }
 
-    public String cal(int x, int y, String sign) {
-        int answer = 0;
+    public String cal(long x, long y, String sign) {
+        long answer = 0;
 
         switch(sign) {
             case "*" :
@@ -82,10 +67,10 @@ public class P67257 {
                 break;
         }
 
-        return Integer.toString(answer);
+        return Long.toString(answer);
     }
 
-    public int ans(String[] express, String sign) {
+    public long ans(String[] express, String sign) {
         
         ArrayList<String> arr = new ArrayList<>();
         for(String x: express) arr.add(x);
@@ -93,8 +78,8 @@ public class P67257 {
         for(String y: sign.split("")){
             for(int i=0; i < arr.size() - 1; i++) {
                 if(y.equals(arr.get(i))) {
-                    int tmp1 = Integer.parseInt(arr.get(i - 1));
-                    int tmp2 = Integer.parseInt(arr.get(i + 1));
+                    long tmp1 = Long.parseLong(arr.get(i - 1));
+                    long tmp2 = Long.parseLong(arr.get(i + 1));
                     arr.add(i - 1, cal(tmp1, tmp2, y));
                     arr.remove(i);
                     arr.remove(i);
@@ -103,15 +88,15 @@ public class P67257 {
                 }
             }
         }
-
-        return Math.abs(Integer.parseInt(arr.get(0)));
+        
+        return Math.abs(Long.parseLong(arr.get(0)));
 
     }
 
     public static void main(String[] args){
         P67257 s = new P67257();
 
-        String expression = "50*6-3*2";
+        String expression = "2*2*2*2*2-2*2*2";
         long answer = s.solution(expression);
 
         System.out.println(answer);
