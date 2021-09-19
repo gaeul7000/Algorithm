@@ -17,7 +17,7 @@ public class P12985 {
     {
         Stack<Fight> A = new Stack<>();
         Stack<Fight> B = new Stack<>();
-        int count = 1;
+        int count = 0;
 
         A.push(new Fight(a, count));
         B.push(new Fight(b, count));
@@ -39,7 +39,7 @@ public class P12985 {
 
         int n = 8;
         int a = 4;
-        int b = 2;
+        int b = 7;
         
         int answer = p.solution(n, a, b);
 
