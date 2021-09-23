@@ -1,56 +1,39 @@
 package alone;
-
-import java.util.ArrayList;
-
-class applicant {
-    String[] app = new String[5];
-
-    public applicant (String ap) {
-        this.app = ap.split(" ");
-    }
-}
-
 public class P72412 {
-    static ArrayList<applicant> arr = new ArrayList<>();
 
     public int[] solution(String[] info, String[] query) {
         int[] answer = new int[query.length];
 
-        for(String x: info) {
-            arr.add(new applicant(x));
+        for(int i = 0; i < query.length; i++) {
+            query[i] = query[i].replace("and ", "");
         }
 
         for(int i = 0; i < query.length; i++) {
-            answer[i] = check(query[i]);
+            int count = 0;
+            String[] q = query[i].split(" ");
+            
+            for(int j = 0; j < info.length; j++) {
+                Boolean flag = true;
+                String[] in = info[j].split(" ");
+
+                for(int w = 0; w < q.length; w++) {
+
+                    if(q[w].equals("-")) continue;
+
+                    if((w < 4 && q[w].equals(in[w])) || (w == 4 && Integer.parseInt(q[w]) <= Integer.parseInt(in[w]))) continue;
+                    
+                    flag = false;
+                }
+
+                if(flag) count++;
+            }
+            answer[i] = count;
         }
+        
 
         return answer;
     }
-
-    public int check(String condition) {
-        ArrayList<applicant> tmp = new ArrayList<>();
-        tmp.addAll(arr);
-
-        String sc = condition.substring(condition.length() - 3, condition.length());
-        String conds = condition.substring(0, condition.length() - 4);
-        String[] cond = conds.split(" and ");
-
-        for(int i = 0; i < cond.length + 1; i++) {
-            if(i < 4 && cond[i].equals("-")) continue;
-
-            for(int j = 0; j < tmp.size(); j++) {
-                if((i < 4 && !tmp.get(j).app[i].equals(cond[i])) || (i == 4 && Integer.parseInt(tmp.get(j).app[i]) < Integer.parseInt(sc))) {
-                    tmp.remove(j);
-                    j--;
-                    continue;
-                }
-            }
-        }
-
-        return tmp.size();
-    }
     
-
 
     public static void main (String[] args) {
         P72412 p = new P72412();
