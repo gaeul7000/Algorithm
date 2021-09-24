@@ -11,7 +11,7 @@ public class P77885 {
         long[] answer = new long[numbers.length];
         boolean[] visited;
         for(int i = 0; i < numbers.length; i++) {
-            binNum = Integer.toBinaryString((int)numbers[i]);
+            binNum = Long.toBinaryString(numbers[i]);
             binNum = "0" + binNum;
             ans = Long.MAX_VALUE;;
             visited = new boolean[binNum.length()];
@@ -26,7 +26,7 @@ public class P77885 {
     }
 
     public void dfs(int index, boolean[] visited) {
-        if(ans == Integer.parseInt(binNum, 2) + 1) return;
+        if(ans == Long.parseLong(binNum, 2) + 1) return;
 
         while(!st.isEmpty()) {
             for(int i = 0; i < binNum.length(); i++) {
@@ -37,16 +37,16 @@ public class P77885 {
                     if(tmp.charAt(i) == '0') tmp = tmp.replace(i, i + 1, "1");
                     else tmp = tmp.replace(i, i + 1, "0");
                     
-                    if(Integer.parseInt(tmp.toString(), 2) > Integer.parseInt(binNum, 2)) {
-                        ans = Math.min(ans, Integer.parseInt(tmp.toString(), 2));
-                    } else return;
+                    if(Long.parseLong(tmp.toString(), 2) > Long.parseLong(binNum, 2)) {
+                        ans = Math.min(ans, Long.parseLong(tmp.toString(), 2));
+                    }
 
                     st.push(tmp);
                     dfs(index + 1, visited);
                     visited[i] = false;
                 }
             }
-
+            
             st.pop();
             return;
         }
